@@ -12,7 +12,7 @@ public static class ServiceExtensions
     {
         services.AddDbContext<RepositoryContext>(options =>
         {
-            options.UseMySQL(configuration.GetConnectionString("Database")!, builder => builder.MigrationsAssembly(nameof(Persistence)));
+            options.UseMySQL(configuration.GetConnectionString("Database")!);
         });
 
         return services;
