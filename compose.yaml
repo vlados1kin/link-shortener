@@ -1,10 +1,12 @@
 ﻿services:
   link-shortener-api:
-    image: link-shortener-api
-    container_name: link-shortener-api
+    image: link-shortener
+    container_name: link-shortener
     build:
       context: src
       dockerfile: Presentation/LinkShortener.API/Dockerfile
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
     ports:
       - "8080:5001"
     networks:
@@ -16,11 +18,12 @@
     image: mysql:latest
     container_name: link-shortener-db
     ports:
-      - "3306:3306"
+      - "3307:3306"
     environment:
       MYSQL_RANDOM_ROOT_PASSWORD: 1
       MYSQL_USER: apiuser
       MYSQL_PASSWORD: apiuserpassword
+      MYSQL_DATABASE: linkshortenerdb
     networks:
       - link-shortener-network
     
