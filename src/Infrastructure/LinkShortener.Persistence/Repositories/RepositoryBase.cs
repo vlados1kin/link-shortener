@@ -14,9 +14,9 @@ public abstract class RepositoryBase<T> : IRepositoryBase<T> where T : BaseEntit
         _context = context;
     }
     
-    public async Task<T?> FindByIdAsync(Guid id, CancellationToken token = default)
+    public async Task<T?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default)
     {
-        return await _context.Set<T>().FindAsync(new object[] { id }, token);
+        return await _context.Set<T>().FindAsync(new object[] { id }, cancellationToken);
     }
     
     public IQueryable<T> FindAll(bool trackChanges)
@@ -39,9 +39,9 @@ public abstract class RepositoryBase<T> : IRepositoryBase<T> where T : BaseEntit
         return _context.Set<T>().Where(expression).AsNoTracking();
     }
 
-    public async Task Create(T entity)
+    public async Task CreateAsync(T entity, CancellationToken cancellationToken = default)
     {
-        await _context.Set<T>().AddAsync(entity);
+        await _context.Set<T>().AddAsync(entity, cancellationToken);
     }
 
     public void Update(T entity)

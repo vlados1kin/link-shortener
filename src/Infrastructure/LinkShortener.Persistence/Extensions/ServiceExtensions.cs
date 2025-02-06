@@ -20,7 +20,7 @@ public static class ServiceExtensions
 
     public static IServiceCollection ConfigureRepositories(this IServiceCollection services)
     {
-        services.AddScoped<IUrlRepository, UrlRepository>();
+        services.AddScoped<IUnitOfWork, UnitOfWork>();
 
         return services;
     }
