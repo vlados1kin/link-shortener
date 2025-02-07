@@ -26,7 +26,7 @@ public class ShortenerController : ControllerBase
         return Created(urlResponseDto.ShortUrl, urlResponseDto);
     }
 
-    [HttpGet("{shortUrl}")]
+    [HttpGet("{shortUrl:regex(^[[a-zA-Z0-9]]{{9}}$)}")]
     public async Task<IActionResult> RedirectToLongUrl([FromRoute] string shortUrl)
     {
         var longUrl = await _sender.Send(new GetLongUrlQuery(shortUrl, true));

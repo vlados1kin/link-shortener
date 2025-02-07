@@ -18,6 +18,7 @@ builder.Services.ConfigureAutoMapper();
 builder.Services.ConfigureMediatr();
 builder.Services.ConfigureShortUrlGenerator();
 builder.Services.ConfigureCors();
+builder.Services.ConfigureValidation();
 
 var app = builder.Build();
 
