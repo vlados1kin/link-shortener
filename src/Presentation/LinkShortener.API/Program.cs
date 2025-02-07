@@ -1,14 +1,20 @@
 using LinkShortener.API.Extensions;
+using LinkShortener.Application.Extensions;
 using LinkShortener.Persistence;
 using LinkShortener.Persistence.Extensions;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddControllers();
 
 builder.Services.ConfigureRepositoryContext(builder.Configuration);
 builder.Services.ConfigureRepositories();
+builder.Services.ConfigureAutoMapper();
+builder.Services.ConfigureMediatr();
+builder.Services.ConfigureShortUrlGenerator();
 builder.Services.ConfigureCors();
 
 var app = builder.Build();
@@ -27,6 +33,6 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseHttpsRedirection();
+app.MapControllers();
 
 app.Run();
