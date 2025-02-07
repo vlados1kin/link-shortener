@@ -1,4 +1,5 @@
 using LinkShortener.API.Extensions;
+using LinkShortener.API.Middlewares;
 using LinkShortener.Application.Extensions;
 using LinkShortener.Persistence;
 using LinkShortener.Persistence.Extensions;
@@ -9,6 +10,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddControllers();
+builder.Services.AddTransient<ExceptionHandlingMiddleware>();
 
 builder.Services.ConfigureRepositoryContext(builder.Configuration);
 builder.Services.ConfigureRepositories();
@@ -18,6 +20,8 @@ builder.Services.ConfigureShortUrlGenerator();
 builder.Services.ConfigureCors();
 
 var app = builder.Build();
+
+app.UseMiddleware<ExceptionHandlingMiddleware>();
 
 using (var scope = app.Services.CreateScope())
 {
