@@ -20,9 +20,14 @@ builder.Services.ConfigureShortUrlGenerator();
 builder.Services.ConfigureCors();
 builder.Services.ConfigureValidation();
 
+builder.Services.AddDirectoryBrowser();
+
 var app = builder.Build();
 
 app.UseMiddleware<ExceptionHandlingMiddleware>();
+
+app.UseStaticFiles();
+app.UseRouting();
 
 using (var scope = app.Services.CreateScope())
 {

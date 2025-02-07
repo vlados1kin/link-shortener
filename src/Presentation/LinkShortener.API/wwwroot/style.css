@@ -1,0 +1,59 @@
+﻿:root {
+    --font-main: "Bahnschrift", sans-serif;
+    --background-color-main: #bbbbbb;
+    --color-table-header: #cccccc;
+    --color-button-create: #333333;
+    --color-button-delete: darkred;
+    --color-text-light: white;
+    --color-border: #333;
+}
+
+body {
+    background-color: var(--background-color-main);
+    font-family: var(--font-main), sans-serif;
+    margin: 0;
+    padding: 20px;
+}
+
+.title {
+    text-align: center;
+}
+
+.table {
+    width: 100%;
+    background-color: white;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+.table th, .table td {
+    border: 2px solid var(--color-border);
+    padding: 10px;
+}
+
+.button {
+    padding: 10px;
+    border: 2px solid var(--color-border);
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    font-family: var(--font-main), sans-serif;
+}
+
+.delete {
+    background-color: darkred;
+    color: white;
+    width: 100%;
+    font-family: var(--color-button-delete), sans-serif;
+}
+
+.create {
+    background-color: #333333;
+    color: white;
+    width: 100%;
+    font-family: var(--color-button-create), sans-serif;
+}
+
+h3 {
+    display: flex;
+    justify-content: center;
+}

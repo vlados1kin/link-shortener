@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Сократитель ссылок URL</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div>
+    <header>
+        <h1 class="title">Сайт по созданию сокращенных ссылок URL</h1>
+    </header>
+    <main>
+        <button class="button create" onclick="window.location.href=`edit.html`">Создать сокращенную ссылку</button>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Длинный URL</th>
+                <th>Сокращенный URL</th>
+                <th>Дата создания</th>
+                <th>Количество переходов</th>
+                <th>Действие</th>
+            </tr>
+            </thead>
+            <tbody id="urlTableBody">
+            </tbody>
+        </table>
+    </main>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
