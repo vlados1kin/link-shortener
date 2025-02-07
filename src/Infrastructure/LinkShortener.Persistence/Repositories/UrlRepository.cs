@@ -17,4 +17,9 @@ public class UrlRepository : RepositoryBase<Url>, IUrlRepository
     {
         return await FindByCondition(url => url.ShortUrl == shortUrl, trackChanges).SingleOrDefaultAsync(cancellationToken);
     }
+
+    public async Task<Url?> GetUrlByLongUrlAsync(string longUrl, bool trackChanges, CancellationToken cancellationToken = default)
+    {
+        return await FindByCondition(url => url.LongUrl == longUrl, trackChanges).SingleOrDefaultAsync(cancellationToken);
+    }
 }
