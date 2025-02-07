@@ -24,9 +24,14 @@
       MYSQL_USER: apiuser
       MYSQL_PASSWORD: apiuserpassword
       MYSQL_DATABASE: linkshortenerdb
+    volumes:
+      - link-shortener-data:/var/lib/mysql
     networks:
       - link-shortener-network
     
 networks:
   link-shortener-network:
     driver: bridge
+    
+volumes:
+  link-shortener-data:
