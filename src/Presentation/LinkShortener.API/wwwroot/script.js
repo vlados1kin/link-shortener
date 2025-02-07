@@ -14,7 +14,10 @@
         <td><a href="http://localhost:8080/${item.shortUrl}">http://localhost:8080/${item.shortUrl}</a></td>
         <td>${new Date(item.createdAt).toLocaleString()}</td>
         <td>${item.clickCount}</td>
-        <td><button class="button delete">Удалить</button></td>
+        <td class="button-container">
+            <button class="button delete">Удалить</button>
+            <button class="button edit">Изменить</button>
+        </td>
         `;
         urlTableBody.appendChild(urlTableRow);
     });
