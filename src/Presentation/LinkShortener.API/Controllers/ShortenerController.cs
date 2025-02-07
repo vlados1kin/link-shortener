@@ -49,4 +49,13 @@ public class ShortenerController : ControllerBase
 
         return Ok(urlsResponseDto);
     }
+
+    [HttpPut("{id:guid}")]
+    public async Task<IActionResult> UpdateUrl([FromRoute] Guid id, [FromBody] UrlRequestDto urlRequestDto)
+    {
+        var urlResponseDto = await _sender.Send(new UpdateUrlCommand(id, urlRequestDto.LongUrl));
+        urlResponseDto.ShortUrl = $"{HttpContext.Request.Scheme}://{HttpContext.Request.Host}{HttpContext.Request.Path}/{urlResponseDto.ShortUrl}";
+        
+        return Ok(urlResponseDto);
+    }
 }
