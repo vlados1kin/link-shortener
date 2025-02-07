@@ -34,10 +34,10 @@ public class ShortenerController : ControllerBase
         return Redirect(longUrl);
     }
 
-    [HttpDelete("{longUrl}")]
-    public async Task<IActionResult> DeleteUrlByLongUrl([FromRoute] string longUrl)
+    [HttpDelete("{id:guid}")]
+    public async Task<IActionResult> DeleteUrlByLongUrl([FromRoute] Guid id)
     {
-        await _sender.Send(new DeleteUrlByLongUrlCommand(longUrl, true));
+        await _sender.Send(new DeleteUrlByIdCommand(id, true));
 
         return NoContent();
     }
