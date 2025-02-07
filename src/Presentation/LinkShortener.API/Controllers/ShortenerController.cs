@@ -41,4 +41,12 @@ public class ShortenerController : ControllerBase
 
         return NoContent();
     }
+
+    [HttpGet]
+    public async Task<IActionResult> GetAllUrls()
+    {
+        var urlsResponseDto = await _sender.Send(new GetAllUrlsQuery(false));
+
+        return Ok(urlsResponseDto);
+    }
 }

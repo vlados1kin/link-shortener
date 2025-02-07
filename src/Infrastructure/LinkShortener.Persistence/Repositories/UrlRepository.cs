@@ -22,4 +22,10 @@ public class UrlRepository : RepositoryBase<Url>, IUrlRepository
     {
         return await FindByCondition(url => url.LongUrl == longUrl, trackChanges).SingleOrDefaultAsync(cancellationToken);
     }
+
+    public async Task<IEnumerable<Url>> GetAllUrlsAsync(bool trackChanges, CancellationToken cancellationToken = default)
+    {
+        var urls = await FindAll(trackChanges).ToListAsync(cancellationToken);
+        return urls;
+    }
 }
