@@ -3,6 +3,7 @@ using System;
 using LinkShortener.Persistence;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
@@ -11,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LinkShortener.Persistence.Migrations
 {
     [DbContext(typeof(RepositoryContext))]
-    [Migration("20250206204437_Initial")]
+    [Migration("20250207075501_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -19,8 +20,10 @@ namespace LinkShortener.Persistence.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "9.0.1")
+                .HasAnnotation("ProductVersion", "8.0.1")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
+
+            MySqlModelBuilderExtensions.AutoIncrementColumns(modelBuilder);
 
             modelBuilder.Entity("LinkShortener.Domain.Entities.Url", b =>
                 {
