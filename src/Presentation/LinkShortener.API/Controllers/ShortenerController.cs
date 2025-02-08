@@ -34,7 +34,7 @@ public class ShortenerController : ControllerBase
         return Redirect(longUrl);
     }
 
-    [HttpDelete("{id:guid}")]
+    [HttpDelete("urls/{id:guid}")]
     public async Task<IActionResult> DeleteUrlByLongUrl([FromRoute] Guid id)
     {
         await _sender.Send(new DeleteUrlByIdCommand(id, true));
@@ -42,7 +42,7 @@ public class ShortenerController : ControllerBase
         return NoContent();
     }
 
-    [HttpGet]
+    [HttpGet("urls")]
     public async Task<IActionResult> GetAllUrls()
     {
         var urlsResponseDto = await _sender.Send(new GetAllUrlsQuery(false));
@@ -50,12 +50,21 @@ public class ShortenerController : ControllerBase
         return Ok(urlsResponseDto);
     }
 
-    [HttpPut("{id:guid}")]
+    [HttpPut("urls/{id:guid}")]
     public async Task<IActionResult> UpdateUrl([FromRoute] Guid id, [FromBody] UrlRequestDto urlRequestDto)
     {
         var urlResponseDto = await _sender.Send(new UpdateUrlCommand(id, urlRequestDto.LongUrl));
         urlResponseDto.ShortUrl = $"{HttpContext.Request.Scheme}://{HttpContext.Request.Host}{HttpContext.Request.Path}/{urlResponseDto.ShortUrl}";
         
+        return Ok(urlResponseDto);
+    }
+
+    [HttpGet("urls/{id:guid}")]
+
+    public async Task<IActionResult> GetUrlById([FromRoute] Guid id)
+    {
+        var urlResponseDto = await _sender.Send(new GetUrlByIdQuery(id));
+
         return Ok(urlResponseDto);
     }
 }
