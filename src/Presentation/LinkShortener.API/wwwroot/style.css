@@ -6,6 +6,7 @@
     --color-button-delete: darkred;
     --color-text-light: white;
     --color-border: #333;
+    --color-input: cornflowerblue;
 }
 
 body {
@@ -21,7 +22,6 @@ body {
 
 .table {
     width: 100%;
-    
 }
 
 .table th, .table td {
@@ -51,24 +51,53 @@ body {
     background-color: darkred;
     color: white;
     width: 100%;
-    font-family: var(--color-button-delete), sans-serif;
+    font-family: var(--font-main), sans-serif;
 }
 
 .edit {
     background-color: #008CBA;
     color: white;
     width: 100%;
-    font-family: var(--color-button-delete), sans-serif;
+    font-family: var(--font-main), sans-serif;
 }
 
 .create {
     background-color: #333333;
     color: white;
     width: 100%;
-    font-family: var(--color-button-create), sans-serif;
+    font-family: var(--font-main), sans-serif;
 }
 
 h3 {
     display: flex;
     justify-content: center;
+}
+
+.url-container {
+    padding: 5px;
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+}
+
+.input {
+    background-color: var(--color-input);
+    width: 100%;
+    padding: 10px;
+    border: 2px solid var(--color-border);
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: text;
+    font-family: var(--font-main), sans-serif;
+}
+
+.input-container {
+    display: flex;
+}
+
+.navigation-container {
+    display: flex;
+    flex-direction: row;
+    padding-top: 5px;
+    gap: 5px;
 }
