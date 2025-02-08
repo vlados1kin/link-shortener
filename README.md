@@ -32,3 +32,9 @@ UI для документации Swagger: [http://localhost:8080/swagger/index
 | PUT    | /shortener/urls/{id}  | ```{ "longUrl": "https://new-example.com" }``` | Изменение ссылки по id            |
 | GET    | /shortener/urls/{id}  |                                                | Получение ссылки по id            |
 | GET    | /shortener/urls       |                                                | Получение всех сокращенных ссылок |
+
+## Скриншоты
+![Главная страница с ссылками](img/index-page.png)
+![Страница создания новой ссылки](img/creating-page.png)
+![Страница редактирования ссылки](img/editing-page.png)
+![Главная страница после удаления ссылки](img/index-page-after-delete.png)
