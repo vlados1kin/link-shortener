@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Сократитель ссылок URL</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div>
+    <header>
+        <h1 class="title">Создание / редактирование сокращенной ссылки URL</h1>
+    </header>
+    <main>
+        <div>
+            <table class="table">
+                <thead id="urlTableHead"></thead>
+                <tbody id="urlTableBody"></tbody>
+            </table>
+        </div>
+        <div class="input-container">
+            <input type="url" id="longUrl" class="input" required placeholder="Enter the long URL">
+        </div>
+        <div class="navigation-container">
+            <button class="button create" onclick="window.location.href=`index.html`">Вернуться на главную страницу
+            </button>
+            <button class="button edit" onclick="createUrl()">Создать / редактировать</button>
+        </div>
+    </main>
+</div>
+<script src="scripts/edit.js"></script>
+</body>
+</html>
