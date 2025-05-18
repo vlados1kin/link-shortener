@@ -13,7 +13,7 @@ git clone https://github.com/vlados1kin/link-shortener
 ```shell
 cd link-shortener
 ```
-### **3. Поднять с Docker-контейнеры**
+### **3. Поднять Docker-контейнеры**
 ```shell
 docker-compose up --build -d
 ```
